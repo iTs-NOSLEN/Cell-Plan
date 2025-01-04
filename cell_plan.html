@@ -1,0 +1,112 @@
+<!-- 
+	Name: cell_plan.html
+	Author: Nelson Lozada Morales
+	Course: COTI 4210-LN1
+	Date: 10/18/2024
+	Purpose: Calculates a customer’s plan cost from a cell phone provider.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Links the external JavaScript file -->
+    <script src="cell.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <title>Cell Phone Plan</title>
+    
+    <!-- Links a favicon (small icon in browser tab) -->
+    <link rel="icon" type="image/x-icon" href="images/CellPhone.jpg">
+    
+    <!-- Links an external CSS file for styling -->
+    <link rel="stylesheet" href="styles_cell.css">
+</head>
+
+<body>
+
+    <h1>The Cell-Phone House</h1>
+    
+    <img src="images/company.png" alt="Company Logo" width="300" height="200">
+    
+    <h3>The best plans for the best price!</h3><hr><br>
+    
+    <center>
+        
+        <form action="" onsubmit="return generateReceipt();">
+
+            <!-- Personal Information Section -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                
+                <img src="images/Individual.jpg" alt="Individual Plan" width="400" height="200">
+                
+                <p><b>Name:</b>
+                    <input id="name" class="personal" type="text" name="name" 
+					maxlength="30" required pattern="^[A-Z][a-z]{1,9} ([A-Z]\. )?[A-Z][a-z]{1,9}$">
+                </p>
+
+                <p><b>Address:</b>
+                    <input id="address" class="personal" type="text" name="address" required>
+                </p>
+
+                <p><b>Phone:</b>
+                    <input id="phone" class="personal" type="tel" name="phone" maxlength="30" 
+					pattern="^\([0-9]{3}\)[0-9]{3}-[0-9]{4}$" placeholder="(123)456-8972" required>
+                </p>
+
+                <p><b>Email:</b>
+                    <input id="email" class="personal" type="email" name="email" maxlength="30" 
+					required placeholder="username@ex.com">
+                </p>
+            </fieldset>
+
+            <!-- Offers Section -->
+            <fieldset class="offers">
+                <legend>Offers</legend>
+
+                <img src="images/Family.jpg" alt="Family Plan" width="400" height="200">
+
+                <!-- Dropdown selection for phone models -->
+                <p><b>Phone Models:</b><br>
+                    <select id="models" name="models" size="1" required>
+                        <option value="slow">Slow 100</option>
+                        <option value="fast">Fast 200</option>
+                        <option value="turbo">Turbo 300</option> 
+                    </select>
+                </p>
+
+                <!-- Radio buttons for selecting different package options -->
+                <p><b>Packages:</b><br>
+                    <label><input id="pack800" type="radio" name="pack" value="pack800" checked>800 minutes/month</label>
+                    <label><input id="pack1500" type="radio" name="pack" value="pack1500">1500 minutes/month</label>
+                    <label><input id="pack3000" type="radio" name="pack" value="pack3000">3000 minutes/month</label>
+                    <label><input id="packUnlimited" type="radio" name="pack" value="packUnlimited">Unlimited minutes/month</label><br>
+                </p>
+
+                <!-- Checkbox options for additional services -->
+                <p><b>Additional:</b><br>
+                    <label><input id="emailService" type="checkbox" name="additions" value="emailSer">Email Service</label>
+                    <label><input id="text" type="checkbox" name="additions" value="text">Text Messaging</label>
+                    <label><input id="gps" type="checkbox" name="additions" value="gps">GPS Tracking</label>
+                </p>
+
+            </fieldset>
+
+            <!-- Submit and Reset buttons -->
+            <p>
+                <input class="subAndReset" type="submit" value="Submit Order" />
+                <input class="subAndReset" type="reset" value="Clear Order" />
+            </p>  <br><hr>
+            
+            <!-- Section for displaying the generated receipt -->
+            <h3>Receipt:</h3>
+            <p>
+                <textarea id="receiptOutput" name="receiptOutput" cols="53" rows="13"></textarea><br/>
+            </p>
+        </form>
+    </center>
+</body>
+</html>
